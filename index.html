@@ -2,34 +2,212 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Your Name - Software & IT Portfolio</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Leo Zihelmanis - Portfolio</title>
     <style>
-        body { font-family: Arial, sans-serif; line-height: 1.6; max-width: 800px; margin: 40px auto; padding: 0 20px; background: #f4f4f9; color: #333; }
-        h1 { color: #2c3e50; }
-        .project { background: #fff; padding: 20px; margin: 20px 0; border-radius: 5px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
-        .tag { background: #3498db; color: white; padding: 3px 8px; border-radius: 3px; font-size: 0.85em; }
+        :root {
+            --bg-color: #0d1117;
+            --card-bg: #161b22;
+            --text-main: #c9d1d9;
+            --text-bright: #f0f6fc;
+            --accent-cyan: #00f2fe;
+            --accent-blue: #4facfe;
+            --border-color: #30363d;
+        }
+
+        body {
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+        }
+
+        /* Header Styles */
+        header {
+            text-align: center;
+            padding: 40px 0;
+            border-bottom: 1px solid var(--border-color);
+            margin-bottom: 40px;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            color: var(--text-bright);
+            letter-spacing: 1px;
+            background: linear-gradient(135deg, var(--accent-cyan) 0%, var(--accent-blue) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-transform: uppercase;
+        }
+
+        header p {
+            font-size: 1.1rem;
+            color: var(--text-main);
+            max-width: 600px;
+            margin: 10px auto 0 auto;
+        }
+
+        header strong {
+            color: var(--accent-cyan);
+        }
+
+        /* Section Headings */
+        h2 {
+            font-size: 1.8rem;
+            color: var(--text-bright);
+            margin-bottom: 30px;
+            position: relative;
+            display: inline-block;
+        }
+
+        h2::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: -5px;
+            width: 50%;
+            height: 3px;
+            background: linear-gradient(90deg, var(--accent-cyan), transparent);
+            border-radius: 2px;
+        }
+
+        /* Project Cards */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 25px;
+        }
+
+        @media (min-width: 768px) {
+            .projects-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        .project {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            padding: 30px;
+            border-radius: 12px;
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .project:hover {
+            transform: translateY(-5px);
+            border-color: var(--accent-cyan);
+            box-shadow: 0 10px 20px rgba(0, 242, 254, 0.1);
+        }
+
+        .project h3 {
+            font-size: 1.4rem;
+            color: var(--text-bright);
+            margin-top: 0;
+            margin-bottom: 15px;
+        }
+
+        .project p {
+            font-size: 0.95rem;
+            color: var(--text-main);
+            margin-bottom: 20px;
+            flex-grow: 1;
+        }
+
+        /* Tags */
+        .tags-container {
+            margin-bottom: 20px;
+        }
+
+        .tag {
+            background: rgba(79, 172, 254, 0.1);
+            color: var(--accent-blue);
+            border: 1px solid rgba(79, 172, 254, 0.3);
+            padding: 4px 10px;
+            border-radius: 6px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-right: 8px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .tag.upcoming {
+            background: rgba(241, 196, 15, 0.1);
+            color: #f1c40f;
+            border: 1px solid rgba(241, 196, 15, 0.3);
+        }
+
+        /* Buttons / Links */
+        .btn {
+            display: inline-block;
+            text-align: center;
+            background: linear-gradient(135deg, var(--accent-blue) 0%, #3060c0 100%);
+            color: #fff;
+            text-decoration: none;
+            padding: 10px 20px;
+            border-radius: 6px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: opacity 0.2s ease;
+        }
+
+        .btn:hover {
+            opacity: 0.9;
+        }
+
+        .btn-disabled {
+            background: #21262d;
+            color: #8b949e;
+            border: 1px solid var(--border-color);
+            cursor: not-allowed;
+        }
     </style>
 </head>
 <body>
 
-    <h1>Your Name</h1>
-    <p><strong>Computer Science Graduate & Cybersecurity beginner</strong> based in Ireland.</p>
-    <p>Building automated software solutions to solve real world logistical and security challenges.</p>
+    <header>
+        <h1>Leo Zihelmanis</h1>
+        <p><strong>Computer Science Graduate & Cybersecurity Specialization</strong> based in Ireland.</p>
+        <p>Building automated software solutions to solve real-world logistical and security challenges.</p>
+    </header>
 
-    <hr>
+    <main>
+        <h2>Featured Projects</h2>
 
-    <h2>Featured Projects</h2>
+        <div class="projects-grid">
+            <div class="project">
+                <div>
+                    <div class="tags-container">
+                        <span class="tag">Logistics</span>
+                        <span class="tag">C#</span>
+                    </div>
+                    <h3>Warehouse Route Optimizer</h3>
+                    <p>Developed a routing engine that automates delivery scheduling from a North Dublin hub. Implemented the Haversine formula to sort optimal sequences, integrated a 30-minute furniture unloading buffer, and built return-to-base tracking to ensure compliance with strict driver cutoff windows.</p>
+                </div>
+                <a href="#" class="btn">View Code on GitHub</a>
+            </div>
 
-    <div class="project">
-        <h3>Warehouse Route Optimizer (C#) <span class="tag">Logistics</span></h3>
-        <p>Developed a routing engine that automates delivery scheduling from a North Dublin hub. Implemented the Haversine formula to sort optimal sequences, integrated a 30-minute furniture unloading buffer, and built return-to-base tracking to ensure compliance with strict driver cutoff windows.</p>
-        <a href="YOUR_C#_REPO_LINK_HERE">View Code on GitHub (add the link in href after)</a>
-    </div>
-
-    <div class="project">
-        <h3>File Integrity Monitor (C#) <span class="tag">Cybersecurity</span> <span class="tag">Upcoming</span></h3>
-        <p>A security tool designed to monitor directory changes, utilize SHA-256 cryptographic hashing to establish file baselines, and instantly alert users to unauthorized file modifications or deletions.</p>
-    </div>
+            <div class="project">
+                <div>
+                    <div class="tags-container">
+                        <span class="tag">Cybersecurity</span>
+                        <span class="tag.upcoming tag">Upcoming</span>
+                    </div>
+                    <h3>File Integrity Monitor</h3>
+                    <p>A security tool designed to monitor directory changes, utilize SHA-256 cryptographic hashing to establish file baselines, and instantly alert users to unauthorized file modifications or deletions.</p>
+                </div>
+                <a href="#" class="btn btn-disabled" onclick="return false;">Development In Progress</a>
+            </div>
+        </div>
+    </main>
 
 </body>
 </html>
