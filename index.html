@@ -25,7 +25,6 @@
             color: var(--text-main);
         }
 
-        /* Header Styles */
         header {
             text-align: center;
             padding: 40px 0;
@@ -55,10 +54,10 @@
             color: var(--accent-cyan);
         }
 
-        /* Section Headings */
         h2 {
             font-size: 1.8rem;
             color: var(--text-bright);
+            margin-top: 50px;
             margin-bottom: 30px;
             position: relative;
             display: inline-block;
@@ -75,7 +74,6 @@
             border-radius: 2px;
         }
 
-        /* Project Cards */
         .projects-grid {
             display: grid;
             grid-template-columns: 1fr;
@@ -145,7 +143,6 @@
             border: 1px solid rgba(241, 196, 15, 0.3);
         }
 
-        /* Buttons / Links */
         .btn {
             display: inline-block;
             text-align: center;
@@ -168,6 +165,86 @@
             color: #8b949e;
             border: 1px solid var(--border-color);
             cursor: not-allowed;
+        }
+
+        .honeycomb-wrapper {
+            display: flex;
+            justify-content: center;
+            padding: 40px 0;
+            overflow: hidden;
+        }
+
+        .honeycomb {
+            display: grid;
+            grid-template-columns: repeat(3, 110px);
+            grid-gap: 12px;
+            margin-bottom: 30px;
+        }
+
+        .hexagon {
+            position: relative;
+            width: 110px; 
+            height: 63.5px; 
+            background-color: var(--card-bg);
+            border-left: 2px solid var(--border-color);
+            border-right: 2px solid var(--border-color);
+            margin: 31.75px 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            cursor: default;
+        }
+
+        .hexagon::before, .hexagon::after {
+            content: "";
+            position: absolute;
+            width: 77.78px;
+            height: 77.78px;
+            transform: scaleY(0.5774) rotate(-45deg);
+            background-color: inherit;
+            left: 14.11px;
+            z-index: 1;
+            transition: all 0.3s ease;
+        }
+
+        .hexagon::before {
+            top: -38.89px;
+            border-top: 2px solid var(--border-color);
+            border-right: 2px solid var(--border-color);
+        }
+
+        .hexagon::after {
+            bottom: -38.89px;
+            border-bottom: 2px solid var(--border-color);
+            border-left: 2px solid var(--border-color);
+        }
+
+        .hex-content {
+            z-index: 2;
+            text-align: center;
+            font-weight: 700;
+            font-size: 1.1rem;
+            color: var(--text-main);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .hexagon:hover {
+            background-color: rgba(0, 242, 254, 0.05);
+            border-color: var(--accent-cyan);
+            filter: drop-shadow(0 0 10px rgba(0, 242, 254, 0.4));
+        }
+        .hexagon:hover::before { border-color: var(--accent-cyan); }
+        .hexagon:hover::after { border-color: var(--accent-cyan); }
+        .hexagon:hover .hex-content { color: var(--accent-cyan); }
+
+        .honeycomb .hexagon:nth-child(4),
+        .honeycomb .hexagon:nth-child(5) {
+            transform: translateX(61px) translateY(-44px);
+        }
+        .honeycomb .hexagon:nth-child(6) {
+            transform: translateY(-88px);
         }
     </style>
 </head>
@@ -199,12 +276,24 @@
                 <div>
                     <div class="tags-container">
                         <span class="tag">Cybersecurity</span>
-                        <span class="tag.upcoming tag">Upcoming</span>
+                        <span class="tag upcoming">Upcoming</span>
                     </div>
                     <h3>File Integrity Monitor</h3>
                     <p>A security tool designed to monitor directory changes, utilize SHA-256 cryptographic hashing to establish file baselines, and instantly alert users to unauthorized file modifications or deletions.</p>
                 </div>
                 <a href="#" class="btn btn-disabled" onclick="return false;">Development In Progress</a>
+            </div>
+        </div>
+
+        <h2>Skills & Technologies</h2>
+        <div class="honeycomb-wrapper">
+            <div class="honeycomb">
+                <div class="hexagon"><div class="hex-content">C#</div></div>
+                <div class="hexagon"><div class="hex-content">.NET</div></div>
+                <div class="hexagon"><div class="hex-content">SQL</div></div>
+                <div class="hexagon"><div class="hex-content">Git</div></div>
+                <div class="hexagon"><div class="hex-content">Cyber</div></div>
+                <div class="hexagon"><div class="hex-content">OOP</div></div>
             </div>
         </div>
     </main>
