@@ -316,10 +316,8 @@
 
         <h2>Screenshots Of Project Work</h2>
     <div class="carousel-container">
-      <div class="carousel-slide">
-        <img src="images/screenshot1.png" class="active" alt="Project Screenshot 1">
-        <img src="images/screenshot2.png" alt="Project Screenshot 2">
-        <img src="images/screenshot3.png" alt="Project Screenshot 3">
+      <div class="carousel-slide" id="dynamic-carousel">
+          
     </div>
         <button class="carousel-btn prev-btn" onclick="moveSlide(-1)">&#10094;</button>
         <button class="carousel-btn next-btn" onclick="moveSlide(1)">&#10095;</button>
@@ -368,21 +366,54 @@
 
     </main>
 <script>
-    let currentSlideIndex = 0;
+    const imageNames = [
+            "Screenshot 2026-05-12 204336.png",
+            "Screenshot 2026-05-12 204413.png",
+            "Screenshot 2026-05-14 205501.png",
+            "Screenshot 2026-05-29 204414.png",
+            "Screenshot 2026-05-29 204424.png",
+            "Screenshot 2026-05-29 204442.png",
+            "Screenshot 2026-05-29 204457.png",
+            "Screenshot 2026-06-04 195912.png",
+            "Screenshot 2026-06-04 195944.png",
+            "Screenshot 2026-06-04 195957.png",
+            "Screenshot 2026-06-04 203331.png",
+            "Screenshot 2026-06-04 203615.png"
+    ];
+
+  const carouselContainer = document.getElementById('dynamic-carousel');
+        
+        imageNames.forEach((name, index) => {
+            const img = document.createElement('img');
+            img.src = `images/${name}`;
+            img.alt = `Warehouse Planner Screenshot ${index + 1}`;
+        
+            if (index === 0) {
+                img.classList.add('active'); 
+            }
+            
+            carouselContainer.appendChild(img);
+        });
+
+        let currentSlideIndex = 0;
 
         function moveSlide(direction) {
-        const slides = document.querySelectorAll('.carousel-slide img');
-        if (slides.length === 0) return; 
-        slides[currentSlideIndex].classList.remove('active');
-        currentSlideIndex += direction;
-        if (currentSlideIndex >= slides.length) {
-        currentSlideIndex = 0;
-        } else if (currentSlideIndex < 0) {
-        currentSlideIndex = slides.length - 1;
+            const slides = document.querySelectorAll('.carousel-slide img');
+            if (slides.length === 0) return; 
+            
+            slides[currentSlideIndex].classList.remove('active');
+            
+            currentSlideIndex += direction;
+            
+            if (currentSlideIndex >= slides.length) {
+                currentSlideIndex = 0; 
+            } else if (currentSlideIndex < 0) {
+                currentSlideIndex = slides.length - 1; 
+            }
+            
+            slides[currentSlideIndex].classList.add('active');
         }
-    slides[currentSlideIndex].classList.add('active');
-        }
-</script>
+    </script>
     
 </body>
 </html>
