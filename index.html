@@ -244,37 +244,80 @@
             }
             .carousel-container {
             position: relative;
-            max-width: 800px;
-            margin: 20px auto;
+            max-width: 100%;
+            margin: 40px auto 60px auto;
             overflow: hidden;
-            border-radius: 8px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+            border-radius: 12px;
+            border: 1px solid rgba(0, 242, 254, 0.25);
+            background-color: var(--card-bg);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7), 
+                        0 0 20px rgba(0, 242, 254, 0.05);
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+            .carousel-container:hover {
+                border-color: var(--accent-cyan);
+                box-shadow: 0 12px 40px rgba(0, 0, 0, 0.8), 
+                 0 0 25px rgba(0, 242, 254, 0.15);
             }
+            
             .carousel-slide img {
-            width: 100%;
-            display: none;
-            height: auto;
+                width: 100%;
+                display: none;
+                height: auto;
+                vertical-align: middle;
+                
+                opacity: 0;
+                transition: opacity 0.4s ease-in-out;
             }
+            
             .carousel-slide img.active {
-            display: block;
+                display: block;
+                opacity: 1;
             }
+          
             .carousel-btn {
                 position: absolute;
                 top: 50%;
                 transform: translateY(-50%);
-                background-color: rgba(0, 0, 0, 0.7);
-                color: #fff;
-                border: none;
-                padding: 14px 18px;
+                background-color: rgba(13, 17, 23, 0.85);
+                color: var(--text-main);
+                border: 1px solid var(--border-color);
+                padding: 14px 16px;
                 cursor: pointer;
-                font-size: 20px;
-                border-radius: 50%;
-                transition: background 0.2s;
+                font-size: 16px;
+                border-radius: 8px;
+                backdrop-filter: blur(4px); 
+                transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+                z-index: 5;
             }
-            .carousel-btn:hover { background-color: rgba(0, 0, 0, 0.9); }
-            .prev-btn { left: 15px; }
-            .next-btn { right: 15px; }
-
+            
+            .carousel-btn:hover {
+                background-color: rgba(0, 242, 254, 0.1);
+                color: var(--accent-cyan);
+                border-color: var(--accent-cyan);
+                box-shadow: 0 0 10px rgba(0, 242, 254, 0.3);
+            }
+            
+            .prev-btn { left: 20px; }
+            .next-btn { right: 20px; }
+            
+            .carousel-counter {
+                position: absolute;
+                bottom: 15px;
+                right: 20px;
+                background-color: rgba(13, 17, 23, 0.8);
+                color: var(--text-main);
+                border: 1px solid var(--border-color);
+                padding: 4px 12px;
+                font-size: 0.8rem;
+                font-weight: 600;
+                font-family: monospace; 
+                border-radius: 20px;
+                letter-spacing: 1px;
+                z-index: 5;
+                backdrop-filter: blur(4px);
+            }
     </style>
 </head>
 <body>
@@ -315,13 +358,14 @@
         </div>
 
         <h2>Screenshots Of Project Work</h2>
-    <div class="carousel-container">
-      <div class="carousel-slide" id="dynamic-carousel">
-          
-    </div>
-        <button class="carousel-btn prev-btn" onclick="moveSlide(-1)">&#10094;</button>
-        <button class="carousel-btn next-btn" onclick="moveSlide(1)">&#10095;</button>
-    </div>
+   <div class="carousel-container">
+            <div class="carousel-counter" id="carousel-counter">1 / 12</div>
+
+            <div class="carousel-slide" id="dynamic-carousel">
+                </div>
+            <button class="carousel-btn prev-btn" onclick="moveSlide(-1)">&#10094;</button>
+            <button class="carousel-btn next-btn" onclick="moveSlide(1)">&#10095;</button>
+        </div>
         
 
         <h2>Skills & Technologies</h2>
@@ -366,7 +410,8 @@
 
     </main>
 <script>
-    const imageNames = [
+   <script>
+        const imageNames = [
             "Screenshot 2026-05-12 204336.png",
             "Screenshot 2026-05-12 204413.png",
             "Screenshot 2026-05-14 205501.png",
@@ -379,40 +424,43 @@
             "Screenshot 2026-06-04 195957.png",
             "Screenshot 2026-06-04 203331.png",
             "Screenshot 2026-06-04 203615.png"
-    ];
+        ];
 
-  const carouselContainer = document.getElementById('dynamic-carousel');
+        const carouselContainer = document.getElementById('dynamic-carousel');
+        const counterElement = document.getElementById('carousel-counter');
         
         imageNames.forEach((name, index) => {
             const img = document.createElement('img');
             img.src = `images/${name}`;
             img.alt = `Warehouse Planner Screenshot ${index + 1}`;
-        
-            if (index === 0) {
-                img.classList.add('active'); 
-            }
-            
+            if (index === 0) img.classList.add('active'); 
             carouselContainer.appendChild(img);
         });
 
         let currentSlideIndex = 0;
+    
+        function updateCounter() {
+            counterElement.textContent = `${currentSlideIndex + 1} / ${imageNames.length}`;
+        }
 
         function moveSlide(direction) {
             const slides = document.querySelectorAll('.carousel-slide img');
             if (slides.length === 0) return; 
             
             slides[currentSlideIndex].classList.remove('active');
-            
             currentSlideIndex += direction;
             
             if (currentSlideIndex >= slides.length) {
-                currentSlideIndex = 0; 
+                currentSlideIndex = 0;
             } else if (currentSlideIndex < 0) {
-                currentSlideIndex = slides.length - 1; 
+                currentSlideIndex = slides.length - 1;
             }
             
             slides[currentSlideIndex].classList.add('active');
+            updateCounter(); 
         }
+
+        updateCounter();
     </script>
     
 </body>
