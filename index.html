@@ -256,12 +256,15 @@
             transition: border-color 0.3s ease, box-shadow 0.3s ease;
                 display: flex;
                 align-items: center;
-}
+            }
 
             .carousel-container:hover {
                 border-color: var(--accent-cyan);
                 box-shadow: 0 12px 40px rgba(0, 0, 0, 0.8), 
                  0 0 25px rgba(0, 242, 254, 0.15);
+            }
+            .carousel-slide {
+                width: 100%;
             }
             
             .carousel-slide img {
@@ -321,6 +324,12 @@
                 z-index: 5;
                 backdrop-filter: blur(4px);
             }
+
+            .carousel-slide img.active {
+            display: block !important;
+            opacity: 1 !important;
+            }
+        
     </style>
 </head>
 <body>
