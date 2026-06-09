@@ -25,13 +25,6 @@
             color: var(--text-main);
         }
 
-        header {
-            text-align: center;
-            padding: 40px 0;
-            border-bottom: 1px solid var(--border-color);
-            margin-bottom: 40px;
-        }
-
         h1 {
             font-size: 2.5rem;
             margin-bottom: 10px;
@@ -329,16 +322,66 @@
             display: block !important;
             opacity: 1 !important;
             }
+    	    header {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 60px 20px 40px 20px; 
+            background: #0d1117; 
+            }
+        
+            .hero-card {
+            background: rgba(22, 27, 34, 0.8); 
+            border: 1px solid #30363d; 
+            border-top: 3px solid #00f2fe; 
+            border-radius: 6px;
+            padding: 40px;
+            max-width: 800px;
+            width: 100%;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5), 0 0 20px rgba(0, 242, 254, 0.05); 
+            }
+        
+            .hero-card h1 {
+            font-size: 2.8rem;
+            color: #00f2fe;
+            margin-bottom: 15px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            font-weight: 700;
+            }
+        
+            .hero-tagline {
+            font-size: 1.2rem;
+            color: #c9d1d9; 
+            margin-bottom: 12px;
+            line-height: 1.5;
+            }
+        
+            .hero-tagline strong {
+            color: #ffffff;
+            }
+        
+            .hero-subtext {
+            font-size: 1rem;
+            color: #8b949e; 
+            max-width: 600px;
+            margin: 0 auto;
+            line-height: 1.6;
+            }
+        
         
     </style>
 </head>
 <body>
 
-    <header>
+   <header>
+    <div class="hero-card">
         <h1>Leo Zihelmanis</h1>
-        <p><strong>Computer Science Graduate & Cybersecurity Specialization</strong> based in Ireland.</p>
-        <p>Building automated software solutions to solve real-world logistical and security challenges.</p>
-    </header>
+        <p class="hero-tagline"><strong>Computer Science Graduate & Cybersecurity Specialization</strong> based in Ireland.</p>
+        <p class="hero-subtext">Building automated software solutions to solve real-world logistical and security challenges.</p>
+    </div>
+</header>
 
     <main>
         <h2>Featured Projects</h2>
