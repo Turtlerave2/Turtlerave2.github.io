@@ -1,6 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
+<html lang="en"><head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Leo Zihelmanis - Portfolio</title>
@@ -13,45 +11,221 @@
             --accent-cyan: #00f2fe;
             --accent-blue: #4facfe;
             --border-color: #30363d;
+            --nav-bg: rgba(13, 17, 23, 0.75);
         }
 
         body {
             font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
             line-height: 1.6;
-            max-width: 900px;
+            max-width: 1200px;
             margin: 0 auto;
-            padding: 40px 20px;
+            padding: 100px 20px 40px 20px; 
             background-color: var(--bg-color);
             color: var(--text-main);
         }
 
-        h1 {
-            font-size: 2.5rem;
-            margin-bottom: 10px;
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 65px;
+            background-color: var(--nav-bg);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border-color);
+            z-index: 1000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .nav-container {
+            width: 100%;
+            max-width: 1200px;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-logo {
+            font-size: 1.4rem;
+            font-weight: 800;
+            color: var(--accent-cyan);
+            letter-spacing: 1.5px;
+            text-decoration: none;
+            text-transform: uppercase;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            align-items: center;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-main);
+            font-size: 0.95rem;
+            font-weight: 500;
+            transition: color 0.2s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent-cyan);
+        }
+
+        .nav-right {
+            display: flex;
+            align-items: center;
+        }
+
+        .hero-split-container {
+            display: flex;
+            gap: 40px; 
+            align-items: stretch;
+            margin-bottom: 50px;
+            margin-top: 30px;
+        }
+
+        header.hero-left {
+            flex: 1.2; 
+            display: flex;
+        }
+
+        .hero-card {
+            background: rgba(22, 27, 34, 0.8); 
+            border: 1px solid var(--border-color); 
+            border-left: 5px solid var(--accent-cyan); 
+            border-radius: 16px;
+            padding: 50px 45px;
+            width: 100%;
+            text-align: left;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6), 0 0 25px rgba(0, 242, 254, 0.03); 
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .hero-card h1 {
+            font-size: 3.8rem; 
+            line-height: 1.1;
+            margin-top: 0;
+            margin-bottom: 25px; 
             color: var(--text-bright);
-            letter-spacing: 1px;
+            letter-spacing: 1.5px;
             background: linear-gradient(135deg, var(--accent-cyan) 0%, var(--accent-blue) 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             text-transform: uppercase;
+            font-weight: 800;
         }
 
-        header p {
-            font-size: 1.1rem;
-            color: var(--text-main);
-            max-width: 600px;
-            margin: 10px auto 0 auto;
+        .hero-tagline {
+            font-size: 1.4rem; 
+            color: #f0f6fc; 
+            margin-bottom: 18px;
+            line-height: 1.5;
+            font-weight: 400;
         }
 
-        header strong {
+        .hero-tagline strong {
+            color: var(--accent-cyan); 
+            font-weight: 600;
+        }
+
+        .hero-subtext {
+            font-size: 1.1rem; 
+            color: #8b949e; 
+            line-height: 1.6;
+            margin-bottom: 35px;
+            margin-top: 0;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 15px;
+        }
+
+        .btn-primary, .btn-secondary {
+            padding: 14px 28px; 
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: all 0.2s ease;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--accent-cyan) 0%, var(--accent-blue) 100%);
+            color: #0d1117;
+            box-shadow: 0 4px 15px rgba(0, 242, 254, 0.2);
+        }
+
+        .btn-primary:hover {
+            opacity: 0.95;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(0, 242, 254, 0.3);
+        }
+
+        .btn-secondary {
+            border: 1px solid var(--border-color);
+            color: var(--text-bright);
+            background: transparent;
+        }
+
+        .btn-secondary:hover {
+            background: var(--card-bg);
+            border-color: var(--accent-cyan);
+            transform: translateY(-3px);
             color: var(--accent-cyan);
         }
 
-        h2 {
-            font-size: 1.8rem;
+        .hero-right {
+            flex: 1;
+            display: flex;
+        }
+
+        .featured-project-card {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            padding: 50px 40px; 
+            border-radius: 16px;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            position: relative;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
+        }
+
+        .featured-label {
+            font-size: 0.75rem;
+            color: #8b949e;
+            letter-spacing: 1.5px;
+            font-weight: bold;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+        }
+
+        .featured-project-card h3 {
+            font-size: 1.6rem;
             color: var(--text-bright);
-            margin-top: 50px;
-            margin-bottom: 30px;
+            margin-top: 0;
+            margin-bottom: 15px;
+        }
+
+        main {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        h2 {
+            font-size: 2.5rem;
+            color: var(--text-bright);
+            margin-top: 90px;
+            margin-bottom: 45px;
             position: relative;
             display: inline-block;
         }
@@ -60,7 +234,7 @@
             content: '';
             position: absolute;
             left: 0;
-            bottom: -5px;
+            bottom: -8px;
             width: 50%;
             height: 3px;
             background: linear-gradient(90deg, var(--accent-cyan), transparent);
@@ -71,12 +245,6 @@
             display: grid;
             grid-template-columns: 1fr;
             gap: 25px;
-        }
-
-        @media (min-width: 768px) {
-            .projects-grid {
-                grid-template-columns: 1fr 1fr;
-            }
         }
 
         .project {
@@ -105,14 +273,13 @@
             margin-bottom: 15px;
         }
 
-        .project p {
+        .project p, .featured-project-card p {
             font-size: 0.95rem;
             color: var(--text-main);
             margin-bottom: 20px;
-            flex-grow: 1;
+            line-height: 1.6;
         }
 
-        /* Tags */
         .tags-container {
             margin-bottom: 20px;
         }
@@ -161,81 +328,82 @@
         }
 
         .honeycomb-container {
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-                padding: 40px 0;
-            }
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 40px 0;
+        }
 
-            .honeycomb-row {
-                display: flex;
-                justify-content: center;
-                gap: 12px;
-            }
+        .honeycomb-row {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+        }
+        
+        .honeycomb-row.row-2 {
+            margin-top: -36px; 
+            transform: translateX(61px); 
+        }
 
-           
-            .honeycomb-row.row-2 {
-                margin-top: -36px; 
-                transform: translateX(61px); 
-            }
+        .hexagon {
+            position: relative;
+            width: 110px;
+            height: 125px;
+            background-color: var(--card-bg);
+            clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
 
-            .hexagon {
-                position: relative;
-                width: 110px;
-                height: 125px;
-                background-color: var(--card-bg);
-                clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            }
+        .hexagon::before {
+            content: "";
+            position: absolute;
+            top: 2px; left: 2px; right: 2px; bottom: 2px;
+            background-color: #0d1117;
+            clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+            z-index: 1;
+            transition: all 0.3s ease;
+        }
 
-            .hexagon::before {
-                content: "";
-                position: absolute;
-                top: 2px; left: 2px; right: 2px; bottom: 2px;
-                background-color: #0d1117;
-                clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
-                z-index: 1;
-                transition: all 0.3s ease;
-            }
+        .hex-content {
+            z-index: 2;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 60%; 
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: all 0.3s ease;
+        }
 
-            .hex-content {
-                z-index: 2;
-                position: absolute;
-                top: 50%;
-                left: 50%;
-                transform: translate(-50%, -50%);
-                width: 60%; 
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                transition: all 0.3s ease;
-            }
+        .hexagon:hover {
+            background-color: var(--accent-cyan);
+            transform: scale(1.08);
+            filter: drop-shadow(0 0 15px rgba(0, 242, 254, 0.6));
+            z-index: 10;
+        }
 
-            .hexagon:hover {
-                background-color: var(--accent-cyan);
-                transform: scale(1.08);
-                filter: drop-shadow(0 0 15px rgba(0, 242, 254, 0.6));
-                z-index: 10;
-            }
-            .hex-icon {
-                width: 100%;
-                height: auto;
-                max-height: 42px; 
-                object-fit: contain; 
-                filter: drop-shadow(0px 2px 4px rgba(0, 0, 0, 0.5));
-            }
+        .hex-icon {
+            width: 100%;
+            height: auto;
+            max-height: 42px; 
+            object-fit: contain; 
+            filter: drop-shadow(0px 2px 4px rgba(0, 0, 0, 0.5));
+        }
 
-            .hexagon:hover::before {
-                background-color: var(--card-bg);
-            }
+        .hexagon:hover::before {
+            background-color: var(--card-bg);
+        }
 
-            .hexagon:hover .hex-content {
-                color: var(--accent-cyan);
-            }
-            .carousel-container {
+        .hexagon:hover .hex-content {
+            color: var(--accent-cyan);
+        }
+
+        .carousel-container {
             position: relative;
             max-width: 100%;
             min-height: 250px; 
@@ -244,247 +412,233 @@
             border-radius: 12px;
             border: 1px solid rgba(0, 242, 254, 0.25);
             background-color: var(--card-bg);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7), 
-                        0 0 20px rgba(0, 242, 254, 0.05);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7), 0 0 20px rgba(0, 242, 254, 0.05);
             transition: border-color 0.3s ease, box-shadow 0.3s ease;
-                display: flex;
-                align-items: center;
-            }
+            display: flex;
+            align-items: center;
+        }
 
-            .carousel-container:hover {
-                border-color: var(--accent-cyan);
-                box-shadow: 0 12px 40px rgba(0, 0, 0, 0.8), 
-                 0 0 25px rgba(0, 242, 254, 0.15);
-            }
-            .carousel-slide {
-                width: 100%;
-            }
-            
-            .carousel-slide img {
-                width: 100%;
-                display: none;
-                height: auto;
-                vertical-align: middle;
-                
-                opacity: 0;
-                transition: opacity 0.4s ease-in-out;
-            }
-            
-            .carousel-slide img.active {
-                display: block;
-                opacity: 1;
-            }
-          
-            .carousel-btn {
-                position: absolute;
-                top: 50%;
-                transform: translateY(-50%);
-                background-color: rgba(13, 17, 23, 0.85);
-                color: var(--text-main);
-                border: 1px solid var(--border-color);
-                padding: 14px 16px;
-                cursor: pointer;
-                font-size: 16px;
-                border-radius: 8px;
-                backdrop-filter: blur(4px); 
-                transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
-                z-index: 5;
-            }
-            
-            .carousel-btn:hover {
-                background-color: rgba(0, 242, 254, 0.1);
-                color: var(--accent-cyan);
-                border-color: var(--accent-cyan);
-                box-shadow: 0 0 10px rgba(0, 242, 254, 0.3);
-            }
-            
-            .prev-btn { left: 20px; }
-            .next-btn { right: 20px; }
-            
-            .carousel-counter {
-                position: absolute;
-                bottom: 15px;
-                right: 20px;
-                background-color: rgba(13, 17, 23, 0.8);
-                color: var(--text-main);
-                border: 1px solid var(--border-color);
-                padding: 4px 12px;
-                font-size: 0.8rem;
-                font-weight: 600;
-                font-family: monospace; 
-                border-radius: 20px;
-                letter-spacing: 1px;
-                z-index: 5;
-                backdrop-filter: blur(4px);
-            }
+        .carousel-container:hover {
+            border-color: var(--accent-cyan);
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.8), 0 0 25px rgba(0, 242, 254, 0.15);
+        }
 
-            .carousel-slide img.active {
+        .carousel-slide {
+            width: 100%;
+        }
+        
+        .carousel-slide img {
+            width: 100%;
+            display: none;
+            height: auto;
+            vertical-align: middle;
+            opacity: 0;
+            transition: opacity 0.4s ease-in-out;
+        }
+        
+        .carousel-slide img.active {
             display: block !important;
             opacity: 1 !important;
-            }
-    	    header {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            padding: 60px 20px 40px 20px; 
-            background: #0d1117; 
-            }
+        }
+      
+        .carousel-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(13, 17, 23, 0.85);
+            color: var(--text-main);
+            border: 1px solid var(--border-color);
+            padding: 14px 16px;
+            cursor: pointer;
+            font-size: 16px;
+            border-radius: 8px;
+            backdrop-filter: blur(4px); 
+            transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+            z-index: 5;
+        }
         
-            .hero-card {
-            background: rgba(22, 27, 34, 0.8); 
-            border: 1px solid #30363d; 
-            border-top: 3px solid #00f2fe; 
-            border-radius: 6px;
-            padding: 40px;
-            max-width: 800px;
-            width: 100%;
-            text-align: center;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5), 0 0 20px rgba(0, 242, 254, 0.05); 
-            }
+        .carousel-btn:hover {
+            background-color: rgba(0, 242, 254, 0.1);
+            color: var(--accent-cyan);
+            border-color: var(--accent-cyan);
+            box-shadow: 0 0 10px rgba(0, 242, 254, 0.3);
+        }
         
-            .hero-card h1 {
-            font-size: 2.8rem;
-            color: #00f2fe;
-            margin-bottom: 15px;
+        .prev-btn { left: 20px; }
+        .next-btn { right: 20px; }
+        
+        .carousel-counter {
+            position: absolute;
+            bottom: 15px;
+            right: 20px;
+            background-color: rgba(13, 17, 23, 0.8);
+            color: var(--text-main);
+            border: 1px solid var(--border-color);
+            padding: 4px 12px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            font-family: monospace; 
+            border-radius: 20px;
             letter-spacing: 1px;
-            text-transform: uppercase;
-            font-weight: 700;
+            z-index: 5;
+            backdrop-filter: blur(4px);
+        }
+
+        @media (max-width: 900px) {
+            body {
+                padding-top: 90px;
             }
-        
-            .hero-tagline {
-            font-size: 1.2rem;
-            color: #c9d1d9; 
-            margin-bottom: 12px;
-            line-height: 1.5;
+            .hero-split-container {
+                flex-direction: column;
+                gap: 20px;
             }
-        
-            .hero-tagline strong {
-            color: #ffffff;
+            .nav-links {
+                gap: 15px;
             }
-        
-            .hero-subtext {
-            font-size: 1rem;
-            color: #8b949e; 
-            max-width: 600px;
-            margin: 0 auto;
-            line-height: 1.6;
-            }
-        
-        
+        }
     </style>
 </head>
 <body>
 
-   <header>
-    <div class="hero-card">
-        <h1>Leo Zihelmanis</h1>
-        <p class="hero-tagline"><strong>Computer Science Graduate & Cybersecurity Specialization</strong> based in Ireland.</p>
-        <p class="hero-subtext">Building automated software solutions to solve real-world logistical and security challenges.</p>
-    </div>
-</header>
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="#" class="nav-logo">LZ</a>
+            <div class="nav-links">
+                <a href="#">Home</a>
+                <a href="#projects">Projects</a>
+                <a href="#skills">Skills</a>
+                <a href="#contact">Contact</a>
+            </div>
+            <div class="nav-right">
+                <div class="theme-toggle-icon" title="Toggle Theme"></div>
+            </div>
+        </div>
+    </nav>
 
-    <main>
-        <h2>Featured Projects</h2>
+    <div class="hero-split-container">
+        
+        <header class="hero-left">
+            <div class="hero-card">
+                <h1>Leo Zihelmanis</h1>
+                <p class="hero-tagline"><strong>Computer Science Graduate &amp; Cybersecurity Specialization</strong> based in Ireland.</p>
+                <p class="hero-subtext">Building automated software solutions to solve real-world logistical and security challenges.</p>
+                <div class="hero-buttons">
+                    <a href="#contact" class="btn-primary">Contact Me</a>
+                    <a href="#" class="btn-secondary">Download CV</a>
+                </div>
+            </div>
+        </header>
 
-        <div class="projects-grid">
-            <div class="project">
+        <div class="hero-right">
+            <div class="featured-project-card">
                 <div>
-                    <div class="tags-container">
+                    <div class="featured-label">Active Engine In Development</div>
+                    <h3>Warehouse Route Optimizer</h3>
+                    <div class="tags-container" style="margin-bottom: 15px;">
                         <span class="tag">Logistics</span>
                         <span class="tag">C#</span>
+                        <span class="tag">.NET 8</span>
                     </div>
-                    <h3>Warehouse Route Optimizer</h3>
                     <p>Developed a routing engine that automates delivery scheduling from a North Dublin hub. Implemented the Haversine formula to sort optimal sequences, integrated a 30-minute furniture unloading buffer, and built return-to-base tracking to ensure compliance with strict driver cutoff windows.</p>
                 </div>
-                <a href="https://github.com/Turtlerave2/WarehousePlanner" class="btn">View Code on GitHub</a>
-            </div>
-
-            <div class="project">
-                <div>
-                    <div class="tags-container">
-                        <span class="tag">Cybersecurity</span>
-                        <span class="tag upcoming">Upcoming</span>
-                    </div>
-                    <h3>File Integrity Monitor</h3>
-                    <p>A security tool designed to monitor directory changes, utilize SHA-256 cryptographic hashing to establish file baselines, and instantly alert users to unauthorized file modifications or deletions.</p>
-                </div>
-                <a href="#" class="btn btn-disabled" onclick="return false;">Development In Progress</a>
+                <a href="https://github.com/Turtlerave2/WarehousePlanner" class="btn" style="margin-top: auto;">View Code on GitHub</a>
             </div>
         </div>
 
-        <h2>Screenshots Of Project Work</h2>
-   <div class="carousel-container">
-            <div class="carousel-counter" id="carousel-counter">1 / 12</div>
+    </div>
 
-            <div class="carousel-slide" id="dynamic-carousel">
-                </div>
-            <button class="carousel-btn prev-btn" onclick="moveSlide(-1)">&#10094;</button>
-            <button class="carousel-btn next-btn" onclick="moveSlide(1)">&#10095;</button>
-        </div>
+    <main>
         
-
-        <h2>Skills & Technologies</h2>
-        
-        <div class="honeycomb-container">
-            <!-- Row 1 -->
-            <div class="honeycomb-row row-1">
-                <div class="hexagon">
-                    <div class="hex-content">
-                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/csharp/csharp-original.svg" alt="C#" class="hex-icon">
+        <div id="projects">
+            <h2>Supplemental Project Track</h2>
+            <div class="projects-grid">
+                <div class="project">
+                    <div>
+                        <div class="tags-container">
+                            <span class="tag">Cybersecurity</span>
+                            <span class="tag upcoming">Upcoming</span>
+                        </div>
+                        <h3>File Integrity Monitor</h3>
+                        <p>A security tool designed to monitor directory changes, utilize SHA-256 cryptographic hashing to establish file baselines, and instantly alert users to unauthorized file modifications or deletions.</p>
                     </div>
-                </div>
-                <div class="hexagon">
-                    <div class="hex-content">
-                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/dotnetcore/dotnetcore-original.svg" alt=".NET" class="hex-icon">
-                    </div>
-                </div>
-                <div class="hexagon">
-                    <div class="hex-content">
-                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/microsoftsqlserver/microsoftsqlserver-original.svg" alt="SQL" class="hex-icon">
-                    </div>
-                </div>
-                 <div class="hexagon">
-                    <div class="hex-content">
-                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg" alt="VS" class="hex-icon">
-                    </div>
-                </div>
-                 <div class="hexagon">
-                    <div class="hex-content">
-                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/powershell/powershell-original.svg" alt="PowerShell" class="hex-icon">
-                    </div>
+                    <a href="#" class="btn btn-disabled" onclick="return false;">Development In Progress</a>
                 </div>
             </div>
-            <div class="honeycomb-row row-2">
-                <div class="hexagon">
-                    <div class="hex-content">
-                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" alt="Git" class="hex-icon">
+
+            <h2>Screenshots Of Project Work</h2>
+            <div class="carousel-container">
+                <div class="carousel-counter" id="carousel-counter">1 / 12</div>
+                <div class="carousel-slide" id="dynamic-carousel"></div>
+                <button class="carousel-btn prev-btn" onclick="moveSlide(-1)">❮</button>
+                <button class="carousel-btn next-btn" onclick="moveSlide(1)">❯</button>
+            </div>
+        </div>
+
+        <div id="skills">
+            <h2>Skills &amp; Technologies</h2>
+            <div class="honeycomb-container">
+                <div class="honeycomb-row row-1">
+                    <div class="hexagon">
+                        <div class="hex-content">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/csharp/csharp-original.svg" alt="C#" class="hex-icon">
+                        </div>
+                    </div>
+                    <div class="hexagon">
+                        <div class="hex-content">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/dotnetcore/dotnetcore-original.svg" alt=".NET" class="hex-icon">
+                        </div>
+                    </div>
+                    <div class="hexagon">
+                        <div class="hex-content">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/microsoftsqlserver/microsoftsqlserver-original.svg" alt="SQL" class="hex-icon">
+                        </div>
+                    </div>
+                     <div class="hexagon">
+                        <div class="hex-content">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg" alt="VS" class="hex-icon">
+                        </div>
+                    </div>
+                     <div class="hexagon">
+                        <div class="hex-content">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/powershell/powershell-original.svg" alt="PowerShell" class="hex-icon">
+                        </div>
                     </div>
                 </div>
-                <div class="hexagon">
-                    <div class="hex-content">
-                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" alt="HTML5" class="hex-icon">
+                <div class="honeycomb-row row-2">
+                    <div class="hexagon">
+                        <div class="hex-content">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" alt="Git" class="hex-icon">
+                        </div>
                     </div>
-                </div>
-                  <div class="hexagon">
-                    <div class="hex-content">
-                        <img src="https://api.iconify.design/logos:google-icon.svg" alt="CyberSecurity" class="hex-icon">
+                    <div class="hexagon">
+                        <div class="hex-content">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" alt="HTML5" class="hex-icon">
+                        </div>
                     </div>
-                </div>
-                  <div class="hexagon">
-                    <div class="hex-content">
-                        <img src="images/Microsoft_365.svg.png" alt="Office" class="hex-icon">
+                      <div class="hexagon">
+                        <div class="hex-content">
+                            <img src="https://api.iconify.design/logos:google-icon.svg" alt="CyberSecurity" class="hex-icon">
+                        </div>
                     </div>
-                </div>
-                <div class="hexagon">
-                    <div class="hex-content">
-                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="JavaScript" class="hex-icon">
+                      <div class="hexagon">
+                        <div class="hex-content">
+                            <img src="images/Microsoft_365.svg.png" alt="Office" class="hex-icon">
+                        </div>
+                    </div>
+                    <div class="hexagon">
+                        <div class="hex-content">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="JavaScript" class="hex-icon">
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
+
+        <div id="contact"></div>
 
     </main>
-   <script>
+
+    <script>
         const imageNames = [
             "Screenshot 2026-05-12 204336.png",
             "Screenshot 2026-05-12 204413.png",
@@ -537,5 +691,5 @@
         updateCounter();
     </script>
     
-</body>
-</html>
+
+</body></html>
