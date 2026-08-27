@@ -37,21 +37,48 @@
           "Screenshot 2026-06-04 203615.png",
         ];
 
+        const imageDetails = [
+          ['COORDINATES', 'Warehouse Planner coordinates check', 'The command-line screen showing the longitude and latitude values, checking for mode used and optimized route'],
+          ['COORDINATES PART 2', 'Warehouse Planner coordinates check', 'The command-line screen showing the longitude and latitude values, checking for mode used and optimized route'],
+          ['FIRST VERSION', 'First command menu', 'Command line screen which shows the V1 of delivery with time'],
+          ['OPTIMISED ROUTE', 'V2 - Optimised Route', 'More sleek looking menu with more options and running straight line mode running test values'],
+          ['OPTIMISED ROUTE PART 2', 'V2 - Optimised Route', 'More sleek looking menu with more options and running Circular based mode running test values'],
+          ['OPTIMISED ROUTE PART 3', 'V2 - Optimised Route', 'More sleek looking menu with more options and running Quandrant based mode running test values'],
+          ['DEBUG COORD', 'Coordinate inspection', 'Raw coordinates and calculated longitude values help verify the optimisation logic.'],
+          ['DEBUG SPEED', 'Route mode speed detection', 'The debug output shows how the application changes the speed of the route and calculates time'],
+          ['PROCESS', 'Adding customer order', 'The owner can add a new customer order to the system, and it shows succesful location confirmation'],
+          ['DEBUG SPEED 2', 'Route mode speed detection', 'The debug output shows how the application changes the speed of the route and calculates time'],
+          ['DEBUG EIRCODE', 'Checking customer eircode', 'The system makes sure the eircode is valid and displays the correct error for each mistake'],
+          ['DEBUG EIRCODE 2', 'Checking customer eircode', 'The system makes sure the eircode is valid'],
+        ];
+
         const carouselContainer = document.getElementById('dynamic-carousel');
         const counterElement = document.getElementById('carousel-counter');
         if (carouselContainer && counterElement) {
           imageNames.forEach((name, index) => {
             const img = document.createElement('img');
             img.src = `images/${name}`;
-            img.alt = `Warehouse Planner Screenshot ${index + 1}`;
-            if (index === 0) img.classList.add('active');
+            img.alt = imageDetails[index][1];
+            if (index === 3) img.classList.add('active');
             carouselContainer.appendChild(img);
+
+            const thumbnail = document.createElement('button');
+            thumbnail.className = `showcase-thumbnail${index === 3 ? ' active' : ''}`;
+            thumbnail.dataset.slide = index;
+            thumbnail.setAttribute('aria-label', `View ${imageDetails[index][1]}`);
+            thumbnail.innerHTML = `<img src="images/${name}" alt=""><span>${String(index + 1).padStart(2, '0')}</span>`;
+            document.getElementById('showcase-thumbnails').appendChild(thumbnail);
           });
 
-          let currentSlideIndex = 0;
+          let currentSlideIndex = 3;
 
           function updateCounter() {
-            counterElement.textContent = `${currentSlideIndex + 1} / ${imageNames.length}`;
+            counterElement.textContent = `${String(currentSlideIndex + 1).padStart(2, '0')} / ${String(imageNames.length).padStart(2, '0')}`;
+            document.getElementById('showcase-label').textContent = imageDetails[currentSlideIndex][0];
+            document.getElementById('showcase-title').textContent = imageDetails[currentSlideIndex][1];
+            document.getElementById('showcase-description').textContent = imageDetails[currentSlideIndex][2];
+            document.querySelectorAll('.showcase-thumbnail').forEach((thumbnail, index) => thumbnail.classList.toggle('active', index === currentSlideIndex));
+            document.querySelectorAll('.stage-button').forEach((button) => button.classList.toggle('active', Number(button.dataset.slide) === currentSlideIndex));
           }
 
           window.moveSlide = function (direction) {
@@ -70,6 +97,24 @@
             slides[currentSlideIndex].classList.add('active');
             updateCounter();
           };
+
+          document.querySelectorAll('.showcase-thumbnail, .stage-button').forEach((button) => {
+            button.addEventListener('click', () => {
+              currentSlideIndex = Number(button.dataset.slide);
+              document.querySelectorAll('.carousel-slide img').forEach((slide, index) => slide.classList.toggle('active', index === currentSlideIndex));
+              updateCounter();
+            });
+          });
+
+          const lightbox = document.getElementById('lightbox');
+          const lightboxImage = document.getElementById('lightbox-image');
+          document.getElementById('showcase-image-button').addEventListener('click', () => {
+            lightboxImage.src = `images/${imageNames[currentSlideIndex]}`;
+            lightboxImage.alt = imageDetails[currentSlideIndex][1];
+            lightbox.hidden = false;
+          });
+          document.getElementById('lightbox-close').addEventListener('click', () => lightbox.hidden = true);
+          lightbox.addEventListener('click', (event) => { if (event.target === lightbox) lightbox.hidden = true; });
 
           updateCounter();
         }

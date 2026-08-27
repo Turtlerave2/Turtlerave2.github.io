@@ -14,11 +14,38 @@
         </div>
     </div>
 
-    <h2>Screenshots Of Project Work</h2>
-    <div class="carousel-container">
-        <div class="carousel-counter" id="carousel-counter">1 / 12</div>
-        <div class="carousel-slide" id="dynamic-carousel"></div>
-        <button class="carousel-btn prev-btn" onclick="moveSlide(-1)">❮</button>
-        <button class="carousel-btn next-btn" onclick="moveSlide(1)">❯</button>
+    <section class="route-showcase" aria-labelledby="route-showcase-title">
+        <div class="showcase-heading">
+            <div>
+                <span class="section-kicker">Project walkthrough</span>
+                <h2 id="route-showcase-title">Inside the Route Engine</h2>
+            </div>
+            <span class="showcase-status"><span></span> System demo</span>
+        </div>
+        <p class="showcase-intro">A test run using sample delivery data to see how the program builds a route and returns to base.</p>
+        <div class="route-stages" aria-label="Project stages">
+            <button class="stage-button active" data-slide="3"><span>01</span><strong>Launch</strong><small>Start Of  the Planner</small></button>
+            <button class="stage-button" data-slide="1"><span>02</span><strong>Test data</strong><small>Run sample deliveries</small></button>
+            <button class="stage-button" data-slide="6"><span>03</span><strong>Optimise</strong><small>Review the test route</small></button>
+            <button class="stage-button" data-slide="0"><span>04</span><strong>Complete</strong><small>Return to base</small></button>
+        </div>
+        <div class="showcase-window">
+            <div class="terminal-bar"><span></span><span></span><span></span><strong>warehouse-planner.exe</strong><em id="carousel-counter">01 / 12</em></div>
+            <button class="showcase-image-button" id="showcase-image-button" aria-label="Open screenshot fullscreen">
+                <div class="carousel-slide" id="dynamic-carousel"></div>
+            </button>
+            <button class="carousel-btn prev-btn" aria-label="Previous screenshot" onclick="moveSlide(-1)">❮</button>
+            <button class="carousel-btn next-btn" aria-label="Next screenshot" onclick="moveSlide(1)">❯</button>
+        </div>
+        <div class="showcase-caption">
+            <div><span id="showcase-label">LAUNCH</span><h3 id="showcase-title">Entering delivery data</h3></div>
+            <p id="showcase-description">Sample delivery details are entered manually before the route is calculated.</p>
+        </div>
+        <div class="showcase-thumbnails" id="showcase-thumbnails" aria-label="Screenshot previews"></div>
+    </section>
+
+    <div class="lightbox" id="lightbox" hidden>
+        <button class="lightbox-close" id="lightbox-close" aria-label="Close fullscreen screenshot">×</button>
+        <img id="lightbox-image" src="" alt="">
     </div>
 </div>
