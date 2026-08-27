@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Space+Grotesk:wght@400;500;600;700&display=swap');
+
 :root {
     --bg-color: #0d1117;
     --card-bg: #161b22;
@@ -10,12 +12,14 @@
 }
 
 body {
-    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    font-family: 'Space Grotesk', sans-serif;
     line-height: 1.6;
     max-width: 1200px;
     margin: 0 auto;
     padding: 100px 20px 40px 20px; 
     background-color: var(--bg-color);
+    background-image: linear-gradient(rgba(48, 54, 61, 0.14) 1px, transparent 1px), linear-gradient(90deg, rgba(48, 54, 61, 0.14) 1px, transparent 1px);
+    background-size: 42px 42px;
     color: var(--text-main);
 }
 
@@ -136,6 +140,34 @@ header.hero-left {
     line-height: 1.6;
     margin-bottom: 35px;
     margin-top: 0;
+}
+
+.hero-signals {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+    margin-bottom: 32px;
+    padding-top: 18px;
+    border-top: 1px solid var(--border-color);
+}
+
+.hero-signals div {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+}
+
+.hero-signals strong {
+    color: var(--text-bright);
+    font-size: 1.1rem;
+}
+
+.hero-signals span, .section-kicker {
+    color: var(--accent-cyan);
+    font-family: 'DM Mono', monospace;
+    font-size: 0.68rem;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
 }
 
 .hero-buttons {
@@ -369,7 +401,9 @@ p, .project p, .featured-project-card p {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 60%; 
+    width: 75%;
+    flex-direction: column;
+    gap: 7px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -389,6 +423,14 @@ p, .project p, .featured-project-card p {
     max-height: 42px; 
     object-fit: contain; 
     filter: drop-shadow(0px 2px 4px rgba(0, 0, 0, 0.5));
+}
+
+.hex-content span {
+    color: var(--text-main);
+    font-family: 'DM Mono', monospace;
+    font-size: 0.65rem;
+    text-align: center;
+    white-space: nowrap;
 }
 
 .hexagon:hover::before {
@@ -480,6 +522,51 @@ p, .project p, .featured-project-card p {
     backdrop-filter: blur(4px);
 }
 
+.contact-section {
+    display: flex;
+    align-items: end;
+    justify-content: space-between;
+    gap: 32px;
+    margin: 100px 0 45px;
+    padding: 32px 0 8px;
+    border-top: 1px solid var(--border-color);
+}
+
+.contact-section h2 {
+    margin: 10px 0 14px;
+    font-size: 2.2rem;
+}
+
+.contact-section p {
+    max-width: 570px;
+    margin-bottom: 0 !important;
+}
+
+.contact-link {
+    flex: 0 0 auto;
+    color: var(--accent-cyan);
+    border-bottom: 1px solid var(--accent-cyan);
+    padding-bottom: 6px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: color 0.2s ease, border-color 0.2s ease;
+}
+
+.contact-link span {
+    display: inline-block;
+    margin-left: 8px;
+    transition: transform 0.2s ease;
+}
+
+.contact-link:hover {
+    color: var(--text-bright);
+    border-color: var(--text-bright);
+}
+
+.contact-link:hover span {
+    transform: translate(3px, -3px);
+}
+
 @media (max-width: 900px) {
     body {
         padding-top: 90px;
@@ -490,5 +577,51 @@ p, .project p, .featured-project-card p {
     }
     .nav-links {
         gap: 15px;
+    }
+    .contact-section {
+        align-items: start;
+        flex-direction: column;
+    }
+}
+
+@media (max-width: 560px) {
+    body {
+        padding: 90px 14px 28px;
+    }
+    .nav-container {
+        padding: 0 14px;
+    }
+    .nav-logo {
+        font-size: 1.35rem;
+    }
+    .nav-links {
+        gap: 10px;
+    }
+    .nav-links a {
+        font-size: 0.95rem;
+    }
+    .hero-card, .featured-project-card {
+        padding: 30px 24px;
+    }
+    .hero-card h1 {
+        font-size: 2.7rem;
+    }
+    .hero-signals {
+        gap: 8px;
+    }
+    .hero-signals strong {
+        font-size: 0.9rem;
+    }
+    .honeycomb-container {
+        align-items: stretch;
+        overflow-x: auto;
+        padding: 20px 0 35px;
+    }
+    .honeycomb-row {
+        justify-content: start;
+        min-width: 610px;
+    }
+    .contact-section h2 {
+        font-size: 1.8rem;
     }
 }
