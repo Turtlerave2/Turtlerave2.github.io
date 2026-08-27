@@ -522,6 +522,90 @@ p, .project p, .featured-project-card p {
     backdrop-filter: blur(4px);
 }
 
+.about-section, .process-section {
+    margin-top: 105px;
+    padding: 34px 0 18px;
+    border-top: 1px solid var(--border-color);
+}
+
+.section-heading h2 {
+    display: block;
+    max-width: 620px;
+    margin: 10px 0 42px;
+    font-size: 2.4rem;
+}
+
+.about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 55px;
+    align-items: start;
+}
+
+.about-lead {
+    margin: 0 !important;
+    color: var(--text-bright) !important;
+    font-size: 1.5rem !important;
+    line-height: 1.35 !important;
+}
+
+.about-copy {
+    border-left: 2px solid var(--accent-cyan);
+    padding-left: 24px;
+}
+
+.about-copy p {
+    margin-bottom: 16px !important;
+}
+
+.process-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 14px;
+}
+
+.process-step {
+    min-height: 190px;
+    padding: 24px;
+    border: 1px solid var(--border-color);
+    background: rgba(22, 27, 34, 0.72);
+    transition: transform 0.25s ease, border-color 0.25s ease;
+}
+
+.process-step:hover {
+    transform: translateY(-5px);
+    border-color: var(--accent-cyan);
+}
+
+.step-number {
+    color: var(--accent-cyan);
+    font-family: 'DM Mono', monospace;
+    font-size: 0.75rem;
+}
+
+.process-step h3 {
+    margin: 25px 0 10px;
+    color: var(--text-bright);
+    font-size: 1.35rem;
+}
+
+.process-step p {
+    margin-bottom: 0 !important;
+    font-size: 1rem !important;
+}
+
+.site-footer {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    padding-top: 22px;
+    border-top: 1px solid var(--border-color);
+    color: #8b949e;
+    font-family: 'DM Mono', monospace;
+    font-size: 0.7rem;
+    text-transform: uppercase;
+}
+
 .contact-section {
     display: flex;
     align-items: end;
@@ -582,6 +666,10 @@ p, .project p, .featured-project-card p {
         align-items: start;
         flex-direction: column;
     }
+    .about-grid, .process-grid {
+        grid-template-columns: 1fr;
+        gap: 24px;
+    }
 }
 
 @media (max-width: 560px) {
@@ -623,5 +711,11 @@ p, .project p, .featured-project-card p {
     }
     .contact-section h2 {
         font-size: 1.8rem;
+    }
+    .section-heading h2 {
+        font-size: 2rem;
+    }
+    .site-footer {
+        flex-direction: column;
     }
 }
